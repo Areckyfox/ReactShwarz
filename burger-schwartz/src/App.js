@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "./Person/Person.css";
 import Person from "./Person/Person";
 
 class App extends Component {
@@ -19,6 +20,15 @@ class App extends Component {
       ]
     });
   };
+  nameChangeHandler = event => {
+    this.setState({
+      persons: [
+        { name: event.target.value, age: "28" },
+        { name: "Max", age: "24" },
+        { name: "Sam", age: "99" }
+      ]
+    });
+  }
   render() {
     return (
       <div className="App">
@@ -29,13 +39,15 @@ class App extends Component {
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
+          value = {this.state.persons[0].name}
         />
         <Person
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
           click={() => this.switchNameHandler("Szczałkom")}
+          changed={this.nameChangeHandler}
         >
-          Some additional information
+          Some additional informatio
         </Person>
         <Person
           name={this.state.persons[2].name}
