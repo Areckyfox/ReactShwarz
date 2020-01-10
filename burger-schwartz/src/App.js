@@ -116,7 +116,7 @@ class App extends Component {
         {persons}
         <br />
         <br />
-        <input onChange={this.handlerInputText} type="text" />
+        <input onChange={this.handlerInputText} type="text" value={this.state.inputText} />
         <br />
         <p>Length: {this.state.inputText.length}</p>
         <Validation length={this.state.inputText.length} />
