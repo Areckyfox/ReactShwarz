@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import classes from "./App.css";
 import Person from "./Person/Person";
 
 class App extends Component {
@@ -58,9 +58,14 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Welcome to React Shwartz</h1>
-        <button onClick={this.togglePersonsHandlers}>Togle Name</button>
+        <button
+          className={classes.buttonns}
+          onClick={this.togglePersonsHandlers}
+        >
+          Togle Name
+        </button>
         {persons}
       </div>
     );
