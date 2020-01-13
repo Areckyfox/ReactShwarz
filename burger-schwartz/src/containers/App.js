@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from "./App.css";
-import Person from "../components/Persons/Person/Person";
+import Persons from "../components/Persons/Persons";
 
 class App extends Component {
   state = {
@@ -12,12 +12,12 @@ class App extends Component {
     showPersons: false
   };
 
-  deletePersonHandler = (index) => {
-    let newPersons = this.state.persons.filter((el, i)=> i !== index)
-    this.setState ({
+  deletePersonHandler = index => {
+    let newPersons = this.state.persons.filter((el, i) => i !== index);
+    this.setState({
       persons: newPersons
-    })
-  }
+    });
+  };
   togglePersonsHandlers = () => {
     let show = this.state.showPersons;
     this.setState({
@@ -25,38 +25,28 @@ class App extends Component {
     });
   };
   changeInputHandler = (event, idPerson) => {
-   let personId = this.state.persons.findIndex((el)=> el.id === idPerson);
+    let personId = this.state.persons.findIndex(el => el.id === idPerson);
 
     const person = { ...this.state.persons[personId] };
-    person.name = event.target.value
+    person.name = event.target.value;
     const persons = [...this.state.persons];
     persons[personId] = person;
 
     this.setState({
       persons: persons
-    })
-  }
+    });
+  };
   render() {
-    let persons = null;
+    let persons = "";
     if (this.state.showPersons) {
       persons = (
-        <div>
-          {this.state.persons.map(({id, name, age }, index) => {
-            return (
-              <Person
-                key={id}
-                name={name}
-                age={age}
-                click={() => this.deletePersonHandler(index)}
-                val={name}
-                changed={event => this.changeInputHandler(event, id)}
-              />
-            );
-          })}
-        </div>
+        <Persons
+          persons={this.state.persons}
+          changed={this.changeInputHandler}
+          click={this.deletePersonHandler}
+        />
       );
     }
-
     return (
       <div className={classes.App}>
         <h1>Welcome to React Shwartz</h1>
