@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-.buttonns {
-  background-color: blue;
-  padding: 16px 25px;
-}
-
-
 :global .fontItalic {
   font-style: italic;
 }
