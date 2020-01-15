@@ -13,12 +13,30 @@ class App extends Component {
     showPersons: false
   };
 
+  componentDidMount(){
+    console.log('[App.js] componentDidMount');
+    
+  }
+
+  componentDidUpdate(){
+    console.log('[App.js] componentDidUpdate');
+    
+  }
+
+  shouldComponentUpdate(beforeProps, beforeState) {
+    console.log('[App.js] shouldComponentUpdate ');
+    return true
+    
+  }
+
   deletePersonHandler = index => {
     let newPersons = this.state.persons.filter((el, i) => i !== index);
     this.setState({
       persons: newPersons
     });
   };
+
+
   togglePersonsHandlers = () => {
     let show = this.state.showPersons;
     this.setState({
@@ -51,7 +69,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <Cockpit clicked={this.togglePersonsHandlers}
-        textWelcome={"Welcome Szwartz"}
+        textWelcome={this.props.appTitle}
         textButton={"togle persons"}
 
         />

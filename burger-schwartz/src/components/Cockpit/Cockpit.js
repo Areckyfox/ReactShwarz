@@ -1,7 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
+
+    useEffect(() => {
+        console.log('[Cocpit.js] useEffect');
+        setTimeout(()=> {
+            alert('saved data to cloud')
+        },1000)
+        return () => {
+            console.log('[Cockpit.js] cleanup work in useEffect');
+            
+        }
+        
+    });
     const {textWelcome, textButton, clicked} = props;
 
     return (
