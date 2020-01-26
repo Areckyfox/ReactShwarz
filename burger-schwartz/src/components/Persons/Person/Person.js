@@ -1,10 +1,13 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 class Person extends Component {
-
+  static getDerivedStateFromProps(props, state) {
+    console.log("[Person.js] getDerivedStateFromProps ", props, state);
+    return props;
+  }
   render() {
-    console.log('[Person.js rendering ....]');
-    
+    console.log("[Person.js rendering ....]");
+
     const { name, age, click, children, val, changed } = this.props;
     return (
       <div>
@@ -15,8 +18,7 @@ class Person extends Component {
         <p>{children}</p>
       </div>
     );
-  };
-
   }
+}
 
 export default Person;
