@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Aux from "../../../hoc/Aux";
+
 
 class Person extends Component {
   static getDerivedStateFromProps(props, state) {
@@ -10,13 +12,13 @@ class Person extends Component {
 
     const { name, age, click, children, val, changed } = this.props;
     return (
-      <div>
+      <Aux>
         <input type="text" value={val} onChange={changed} />
         <p onClick={click}>
           I'm a {name} and I'm {age} years old!
         </p>
         <p>{children}</p>
-      </div>
+      </Aux>
     );
   }
 }
