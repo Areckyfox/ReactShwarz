@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import Aux from "../../../hoc/Aux";
 
 
+
 class Person extends Component {
-  static getDerivedStateFromProps(props, state) {
-    console.log("[Person.js] getDerivedStateFromProps ", props, state);
-    return props;
-  }
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log("[Person.js] getDerivedStateFromProps ", props, state);
+  //   return props;
+  // }
   render() {
     console.log("[Person.js rendering ....]");
 
@@ -21,6 +23,14 @@ class Person extends Component {
       </Aux>
     );
   }
+}
+
+
+Person.propTypes = {
+  click: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  changed: PropTypes.func
 }
 
 export default Person;
