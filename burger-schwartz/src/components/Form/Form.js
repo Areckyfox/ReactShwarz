@@ -8,9 +8,10 @@ const form = () => {
     surnName: "",
     email: ""
    })
+   
    const editForm = (event) =>{
        console.log(event.target.name)
-       const editedForm = {... formPerson }; 
+       const editedForm = {...formPerson }; 
        editedForm[event.target.name] = event.target.value;
 
        setFormPerson(editedForm);
@@ -18,38 +19,35 @@ const form = () => {
    }
    return (
      <Aux>
-       <label for="name">
-         Labal form name
-         <input
-           type="text"
-           name="name"
-           value={formPerson.name}
-           placeholder="name"
-           onChange={editForm}
-         />
-       </label>
-       <label for="surnName">
-         Labal form name
-         <input
-           type="text"
-           name="surnName"
-           value={formPerson.surName}
-           placeholder="surname"
-           onChange={editForm}
-         />
-       </label>
-       <label for="email">
-         Labal form name
-         <input
-           type="email"
-           name="email"
-           value={formPerson.email}
-           placeholder="email"
-           onChange={editForm}
-         />
-       </label>
-
-       <span>{JSON.stringify(formPerson)}</span>
+      
+       <input
+         className={classes.myForm}
+         type="text"
+         name="name"
+         value={formPerson.name}
+         placeholder="name"
+         onChange={editForm}
+       />
+       <input
+         className={classes.myForm}
+         type="text"
+         name="surnName"
+         value={formPerson.surName}
+         placeholder="surname"
+         onChange={editForm}
+       />
+       <input
+         className={classes.myForm}
+         type="email"
+         name="email"
+         value={formPerson.email}
+         placeholder="email"
+         onChange={editForm}
+       />
+       <div>{formPerson.name}</div>
+       <div>{formPerson.surnName}</div>
+       <div>{formPerson.email}</div>
+       <hr/>
      </Aux>
    );
 }

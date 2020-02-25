@@ -5,7 +5,8 @@ import Cockpit from "../components/Cockpit/Cockpit";
 import withClass from "../hoc/withClass";
 import Aux from '../hoc/Aux';
 import AuthContext from '../context/auth-context';
-import Form from '../components/Form/Form'
+import Form from '../components/Form/Form';
+import Counter from '../components/Counter/Counter';
 
 class App extends Component {
   constructor(props) {
@@ -100,6 +101,7 @@ class App extends Component {
           {persons}
         </AuthContext.Provider>
         <Form/>
+        <Counter/>
       </Aux>
     );
   }
