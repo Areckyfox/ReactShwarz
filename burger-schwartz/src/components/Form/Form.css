@@ -1,0 +1,7 @@
+label {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
